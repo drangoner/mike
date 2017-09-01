@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
   <meta charset="UTF-8">
-  <title>Blog | Amaze UI Example</title>
+  <title>Blog | Mike</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport"
         content="width=device-width, initial-scale=1">
@@ -100,26 +100,80 @@
       background: url(black.png);
       -webkit-mask-image:-webkit-linear-gradient(top,rgba(0,0,0,1), rgba(0,0,0,0));
     }
+    .me-info {
+      width: 80px;
+      padding: 10px 0;
+      float: right;
+    }
   </style>
 </head>
 <body>
 
 <div class="am-g am-g-fixed blog-g-fixed">
+
+  <!-- 侧边栏内容 -->
+<div id="about-me" class="am-offcanvas">
+  <div class="am-offcanvas-bar">
+    <div class="am-offcanvas-content"> 
+      <div><img class="am-circle" src="assets/img/jamesmike.jpg" width="140" height="140"/>
+          <div class="me-info"><span>于坤龙</span><br/><small>(James Mike)</small><br/>
+            <small>男&nbsp;&nbsp;&nbsp;&nbsp;21</small><br/>
+            <small>南昌大学</small><br/>
+            <small>计算机专业</small>
+          </div>
+      </div>
+      <h3>兴趣爱好</h3>
+      <ul>
+        <li>骑行: <small>青藏线全程骑行</small></li>
+        <li>运动
+          <ul>
+            <li>篮球：<small>水平一般般</small></li>
+            <li>乒乓球：<small>初中开始打，水平中等</small></li>
+          </ul>
+        </li>
+        <li>旅游: <small>爬过泰山、华山，去过拉萨，成都，重庆，北京，长沙等</small></li>
+      </ul>
+      <hr data-am-widget="divider" style="" class="am-divider am-divider-dashed" />
+
+      <h3>职业技能</h3>
+      <ul>
+        <li>Android: <small>上线一款计算器app，小赚广告费</small></li>
+        <li>web
+          <ul>
+            <li>前端：<small>html,css,js等略懂</small></li>
+            <li>后端：<small>php,python,java,go等略懂</small></li>
+          </ul>
+        </li>
+        <li>数据库: <small>基础阶段</small></li>
+        <li>数据结构：<small>中等水平，考研加油</small></li>
+      </ul>
+      <hr data-am-widget="divider" style="" class="am-divider am-divider-dashed" />
+
+      <h3>就业经历</h3>
+      <ul>
+        <li>南大网络中心: <small>助研部助理</small></li>
+        <li>江西中至数据中心：<small>技术实习生</small></li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
   <div class="am-u-md-4 ">
     <div class="blog-left">
-  <blockquote>
-  <p>无论走到哪里，都应该记住，过去都是假的，回忆是一条没有尽头的路，一切以往的春天都不复存在，就连那最坚韧而又狂乱的爱情归根结底也不过是一种转瞬即逝的现实。</p>
-  <small>马尔克斯 ——《百年孤独》</small>
-</blockquote>
+      <blockquote>
+        <p>无论走到哪里，都应该记住，过去都是假的，回忆是一条没有尽头的路，一切以往的春天都不复存在，就连那最坚韧而又狂乱的爱情归根结底也不过是一种转瞬即逝的现实。</p>
+        <small>马尔克斯 ——《百年孤独》</small>
+      </blockquote>
       <ul class="am-list am-list-static  am-list-striped " >
-        <li><a href="#"><p>About me<br/><small class="am-kai">关于我</small></p></a></li>
+        <li><a href="#about-me" data-am-offcanvas><p>About me<br/><small class="am-kai">关于我</small></p></a></li>
         <li><a href="#"><p>Artical<br/><small class="am-kai">文章</small></p></a></li>
         <li><a href="#"><p>Picture<br/><small class="am-kai">图片</small></p></a></li>
         <li><a href="#"><p>Chating<br/><small class="am-kai">留言板</small></p></a></li>
         <li><p><a href="#">Contact me<br/><small class="am-kai">联系我</small></a><br/>
-            <a href=""><small class="am-icon-qq"> QQ</small></a>
-            <a href=""><small class="am-icon-weixin"> Wechat</small></a>
-            <a href=""><small class="am-icon-github">Github</small></a>
+            <a href="#"><small class="am-icon-qq"> QQ</small></a>
+            <a href="#"><small class="am-icon-weixin"> Wechat</small></a>
+            <a href="#"><small class="am-icon-github">Github</small></a>
             </p></li>
         <li><a href="#"><p>Support<br/><small class="am-kai">支持</small></p></a></li>
       </ul>
@@ -137,7 +191,7 @@
       <h4 class="am-article-meta blog-meta">by <a href="">ben</a> posted on 2014/06/17 under <a href="#">javascript</a>
       </h4>
 
-      <div class="am-g blog-content">
+      <div class="am-g blog-content am-kai">
         <div class="am-u-lg-7">
           <p><!--本demo文字来自 http://blog.justfont.com/--> 这次要介绍的是大家似乎都狠熟悉却又狠陌生的字体：Arial。不只是对 Typography
             特别有兴趣的人、碰过排版的人，就算毫无接触，只要打开过电脑的字型选单，应该都有看过这个字型吧。尤其它还是以 A 开头，总是会出现在选单最前面。</p>
@@ -149,7 +203,7 @@
         </div>
       </div>
       <div class="am-g">
-        <div class="am-u-sm-12">
+        <div class="am-u-sm-12 am-kai">
           <p>在欧美的排版业界中，使用 Arial 的作品意即是「不使用 Helvetica 的作品」，会被认為是设计师对字体的使用没有概念或是太容易妥协，基本上我大致也是同意。</p>
 
           <p>因為 Helvetica 只有 Mac 上才有內建，Windows 用戶除非花錢買，不然是沒有 Helvetica 能用，所以使用 Arial 的設計師往往被看成是不願意對 Typography
@@ -168,7 +222,7 @@
       </h3>
       <h4 class="am-article-meta blog-meta">by <a href="">open</a> posted on 2014/06/17 under <a href="#">字体</a></h4>
 
-      <div class="am-g blog-content">
+      <div class="am-g blog-content am-kai">
         <div class="am-u-lg-7">
           <p><!-- 本demo来自 http://blog.justfont.com/ -->你自信滿滿的跟客戶進行第一次 demo。秀出你精心設計的內容時，你原本期許客戶冷不防地掉下感動的眼淚。</p>
 
@@ -182,7 +236,7 @@
         </div>
       </div>
       <div class="am-g">
-        <div class="am-u-sm-12">
+        <div class="am-u-sm-12 am-kai">
           <p>看著自己的作品，你的喜悅之情溢於言表，差點就要說出我要感謝我的父母之類的得獎感言。但在你對面的客戶先是一點表情也沒有，又瞬間轉為陰沉，抿了抿嘴角冷冷的說……</p>
 
           <p>「我要一種比較跳的感覺懂嗎？」</p>
