@@ -105,6 +105,11 @@
       padding: 10px 0;
       float: right;
     }
+      .message {
+      width: 200px;
+      height: 150px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -161,6 +166,11 @@
 
   <div class="am-u-md-4 ">
     <div class="blog-left">
+      <small id="time"></small><br>
+      <small class="am-kai" id="process">2017年逝去50%了哟</small>
+      <div class="am-progress am-progress-striped am-progress-sm am-active ">
+        <div class="am-progress-bar am-progress-bar-secondary" id="process2" style="width: 60%;line-height: 16px">50%</div>
+      </div>
       <blockquote>
         <p>无论走到哪里，都应该记住，过去都是假的，回忆是一条没有尽头的路，一切以往的春天都不复存在，就连那最坚韧而又狂乱的爱情归根结底也不过是一种转瞬即逝的现实。</p>
         <small>马尔克斯 ——《百年孤独》</small>
@@ -169,7 +179,7 @@
         <li><a href="#about-me" data-am-offcanvas><p>About me<br/><small class="am-kai">关于我</small></p></a></li>
         <li><a href="#"><p>Artical<br/><small class="am-kai">文章</small></p></a></li>
         <li><a href="#"><p>Picture<br/><small class="am-kai">图片</small></p></a></li>
-        <li><a href="#"><p>Chating<br/><small class="am-kai">留言板</small></p></a></li>
+        <li><a href="javascript:void(0);" onclick="chatting()"><p>Chating<br/><small class="am-kai">留言板</small></p></a></li>
         <li><p><a href="#">Contact me<br/><small class="am-kai">联系我</small></a><br/>
             <a href="#"><small class="am-icon-qq"> QQ</small></a>
             <a href="#"><small class="am-icon-weixin"> Wechat</small></a>
@@ -180,10 +190,9 @@
     </div>
       
   </div>
-  <div class="am-u-md-8">
+  <div class="am-u-md-8" id="right-part">
     <div class="mask"></div>
     <div class="mask-above"></div>
-
      <article class="blog-main">
       <h3 class="am-article-title">
         <a href="#">身邊的字體: Arial (上)</a>
@@ -261,6 +270,38 @@
 
 <!--[if (gte IE 9)|!(IE)]><!-->
 <script src="assets/js/jquery.min.js"></script>
+<script type="text/javascript">
+  var day= new Array('日','一','二','三','四','五','六');
+  $(function(){
+    var time = document.getElementById('time');
+    var pro = document.getElementById('process');
+    var pro2 = document.getElementById('process2');
+
+    var date = new Date();
+    time.innerHTML= date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日  星期"+day[date.getDay()]+ "&nbsp;&nbsp;&nbsp;" + date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+    pro.innerHTML = date.getFullYear()+"年逝去"+((date.getMonth()+1)/12*100)+"%了哟";
+    pro2.innerHTML = ((date.getMonth()+1)/12*100)+"%";
+
+    setInterval(function(){
+      var date = new Date();
+      time.innerHTML= date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日  星期"+day[date.getDay()]+ "&nbsp;&nbsp;&nbsp;" + date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+      pro.innerHTML = date.getFullYear()+"年逝去"+((date.getMonth()+1)/12*100)+"%了哟";
+      pro2.innerHTML = ((date.getMonth()+1)/12*100)+"%";
+    },1000);
+  });
+  function chatting(){
+    $.ajax({
+      type:"GET",
+      url:"./chatting.html",
+      dataType:"html",
+      success:function(data){
+        var str= data;
+        $("#right-part").append(str);
+      }
+      
+    });
+  }
+</script>
 <!--<![endif]-->
 <script src="assets/js/amazeui.min.js"></script>
 
