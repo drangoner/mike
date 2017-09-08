@@ -1,169 +1,288 @@
-<!doctype html>
-<html class="no-js">
-<head>
-  <meta charset="utf-8">
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Blog | Mike</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
   <meta name="viewport"
         content="width=device-width, initial-scale=1">
-  <title>Amaze UI Examples</title>
-
-  <!-- Set render engine for 360 browser -->
+  <meta name="format-detection" content="telephone=no">
   <meta name="renderer" content="webkit">
-
-  <!-- No Baidu Siteapp-->
   <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
+  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+    <style>
+    @media only screen and (min-width: 1200px) {
+      .blog-g-fixed {
+        max-width: 1200px;
+      }
+      .blog-left {
+        width: 300px;
+        position: fixed;
+        top: 0;
+        padding-top: 100px;
+      } 
+      .blog-left ul {
+        margin-top: 10%;
+        text-align: right;
+      }
+      .blog-left li {
+         padding: 6px 10px 6px 0;
+      }
 
-  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+      .blog-left p {
+         margin: 0;
+      }   
+    }
 
-  <!-- Add to homescreen for Chrome on Android -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+    @media only screen and (min-width: 641px) {
+      .blog-sidebar {
+        font-size: 1.4rem;
+      }
+    }
 
-  <!-- Add to homescreen for Safari on iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
-  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    .blog-main {
+      padding: 20px 20px;
+    }
 
-  <!-- Tile icon for Win8 (144x144 + tile color) -->
-  <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
-  <meta name="msapplication-TileColor" content="#0e90d2">
+    .blog-title {
+      margin: 10px 0 20px 0;
+    }
 
-  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-  <!--
-  <link rel="canonical" href="http://www.example.com/">
-  -->
+    .blog-meta {
+      font-size: 14px;
+      margin: 10px 0 20px 0;
+      color: #222;
+    }
 
-  <link rel="stylesheet" href="assets/css/amazeui.min.css">
-  <link rel="stylesheet" href="assets/css/app.css">
+    .blog-meta a {
+      color: #27ae60;
+    }
+
+    .blog-pagination a {
+      font-size: 1.4rem;
+    }
+
+    .blog-team li {
+      padding: 4px;
+    }
+
+    .blog-team img {
+      margin-bottom: 0;
+    }
+    .blog-content img,
+    .blog-team img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .blog-footer {
+      padding: 10px 0;
+      z-index: 1000;
+      color: #000;
+      text-align: center;
+    }
+    .mask {
+      position: fixed;
+      top: 0;
+      height: 1080px;
+      width: 800px;
+      background: url(black.png) no-repeat;
+      background-size: 100% 100%;
+      -webkit-mask-image:-webkit-linear-gradient(top,rgba(0,0,0,0), rgba(0,0,0,0.4));
+    }
+    .mask-above {
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      width: 800px;
+      height: 200px;
+      background: url(black.png);
+      -webkit-mask-image:-webkit-linear-gradient(top,rgba(0,0,0,1), rgba(0,0,0,0));
+    }
+    .me-info {
+      width: 80px;
+      padding: 10px 0;
+      float: right;
+    }
+      .message {
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-<!--[if lte IE 9]>
-<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a
-  href="http://browsehappy.com/" target="_blank">升级浏览器</a>
-  以获得更好的体验！</p>
-<![endif]-->
 
-<!-- 页面内容 开发时删除 -->
-<div class="am-g am-g-fixed am-margin-top">
-  <div class="am-u-sm-12">
-    <h1>你好世界！小可 Amaze UI 模板。</h1>
+<div class="am-g am-g-fixed blog-g-fixed">
 
-    <p>这是一个基础的页面，引入 Amaze UI 的 css 、js
-      文件。如果你已经熟读文档，使用时删除内容开始开发即可。建议使用前先阅读文档，以提高开发效率。</p>
-  </div>
-</div>
-<div class="am-g am-g-fixed am-margin-top">
-  <p class="am-u-sm-12">下载包里面有 4 个常见布局示例，供开发者参考。</p>
-
-  <div class="am-u-sm-12">
-    <div class="am-g">
-      <div class="am-u-sm-12 am-u-md-3">
-        <a href="landing.html"><img class="am-img-thumbnail"
-                                    src="assets/i/examples/landingPage.png"
-                                    alt="展示页面"/></a>
+  <!-- 侧边栏内容 -->
+<div id="about-me" class="am-offcanvas">
+  <div class="am-offcanvas-bar">
+    <div class="am-offcanvas-content"> 
+      <div><img class="am-circle" src="assets/img/jamesmike.jpg" width="140" height="140"/>
+          <div class="me-info"><span>于坤龙</span><br/><small>(James Mike)</small><br/>
+            <small>男&nbsp;&nbsp;&nbsp;&nbsp;21</small><br/>
+            <small>南昌大学</small><br/>
+            <small>计算机专业</small>
+          </div>
       </div>
-      <div class="am-u-sm-12 am-u-md-9">
-        <h3>展示页面</h3>
+      <h3>兴趣爱好</h3>
+      <ul>
+        <li>骑行: <small>青藏线全程骑行</small></li>
+        <li>运动
+          <ul>
+            <li>篮球：<small>水平一般般</small></li>
+            <li>乒乓球：<small>初中开始打，水平中等</small></li>
+          </ul>
+        </li>
+        <li>旅游: <small>爬过泰山、华山，去过拉萨，成都，重庆，北京，长沙等</small></li>
+      </ul>
+      <hr data-am-widget="divider" style="" class="am-divider am-divider-dashed" />
 
-        <p>
-          CSS 部分：<a class="am-badge am-badge-success" href="/css/grid">网格</a> <a
-          class="am-badge am-badge-success" href="/css/icon">图标</a> <a
-          class="am-badge am-badge-success" href="/css/button">按钮</a> <a
-          class="am-badge am-badge-success" href="/css/form">表单</a> <a
-          class="am-badge am-badge-success" href="/css/article">文章页</a> <a
-          class="am-badge am-badge-success" href="/css/topbar">导航条</a> <a
-          class="am-badge am-badge-success" href="/css/utility">辅助类</a><br/>
-          JS 插件部分：<a class="am-badge am-badge-primary"
-                     href="/javascript/dropdown">下拉组件</a> <a
-          class="am-badge am-badge-primary"
-          href="/javascript/scrollspy">滚动侦测</a>
-        </p>
-      </div>
+      <h3>职业技能</h3>
+      <ul>
+        <li>Android: <small>上线一款计算器app，小赚广告费</small></li>
+        <li>web
+          <ul>
+            <li>前端：<small>html,css,js等略懂</small></li>
+            <li>后端：<small>php,python,java,go等略懂</small></li>
+          </ul>
+        </li>
+        <li>数据库: <small>基础阶段</small></li>
+        <li>数据结构：<small>中等水平，考研加油</small></li>
+      </ul>
+      <hr data-am-widget="divider" style="" class="am-divider am-divider-dashed" />
+
+      <h3>就业经历</h3>
+      <ul>
+        <li>南大网络中心: <small>助研部助理</small></li>
+        <li>江西中至数据中心：<small>技术实习生</small></li>
+      </ul>
+
     </div>
-    <div class="am-g am-margin-top">
-      <div class="am-u-sm-12 am-u-md-3">
-        <a href="login.html"><img class="am-img-thumbnail"
-                                  src="assets/i/examples/loginPage.png"
-                                  alt="登录页面"/></a>
-      </div>
-      <div class="am-u-sm-12 am-u-md-9">
-        <h3>登录页面</h3>
-
-        <p>
-          CSS 部分：<a class="am-badge am-badge-success" href="/css/grid">网格</a> <a
-          class="am-badge am-badge-success" href="/css/icon">图标</a> <a
-          class="am-badge am-badge-success" href="/css/button">按钮</a> <a
-          class="am-badge am-badge-success" href="/css/button-group">按钮组</a> <a
-          class="am-badge am-badge-success" href="/css/form">表单</a>
-        </p>
-      </div>
-    </div>
-    <div class="am-g am-margin-top">
-      <div class="am-u-sm-12 am-u-md-3">
-        <a href="blog.html"><img class="am-img-thumbnail"
-                                 src="assets/i/examples/blogPage.png"
-                                 alt="博客页面"/></a>
-      </div>
-      <div class="am-u-sm-12 am-u-md-9">
-        <h3>博客页面</h3>
-
-        <p>
-          CSS 部分：<a class="am-badge am-badge-success" href="/css/grid">网格</a> <a
-          class="am-badge am-badge-success" href="/css/block-grid">等宽布局</a> <a
-          class="am-badge am-badge-success" href="/css/icon">图标</a> <a
-          class="am-badge am-badge-success" href="/css/button">按钮</a> <a
-          class="am-badge am-badge-success" href="/css/panel">面板</a> <a
-          class="am-badge am-badge-success" href="/css/list">列表</a> <a
-          class="am-badge am-badge-success" href="/css/pagination">分页</a><br/>
-          JS 插件部分：<a class="am-badge am-badge-primary"
-                     href="/css/dropdown">下拉组件</a>
-        </p>
-      </div>
-    </div>
-    <div class="am-g am-margin-top">
-      <div class="am-u-sm-12 am-u-md-3">
-        <a href="sidebar.html"><img class="am-img-thumbnail"
-                                    src="assets/i/examples/sidebarPage.png"
-                                    alt="博客侧栏页面"/></a>
-      </div>
-      <div class="am-u-sm-12 am-u-md-9">
-        <h3>博客侧栏页面</h3>
-
-        <p>
-          CSS 部分：<a class="am-badge am-badge-success" href="/css/grid">网格</a> <a
-          class="am-badge am-badge-success" href="/css/article">文章页</a> <a
-          class="am-badge am-badge-success" href="/css/comment">评论列表</a> <a
-          class="am-badge am-badge-success" href="/css/button">按钮</a> <a
-          class="am-badge am-badge-success" href="/css/icon">图标</a> <a
-          class="am-badge am-badge-success" href="/css/list">列表</a> <a
-          class="am-badge am-badge-success" href="/css/utility">辅助类</a><br/>
-          JS 插件部分：<a class="am-badge am-badge-primary"
-                     href="/javascript/offcanvas">侧边栏组件</a>
-        </p>
-      </div>
-    </div>
-    <hr/>
-    <h2>Web 组件示例</h2>
-    <ul>
-      <li><a href="widget.basic.html">widget.basic.html</a> 使用了 <a
-        href="http://amazeui.org/widgets">Web 组件</a> 的 HTML 结构和样式，但没用使用模板在前端渲染数据，供通过后端渲染数据的用户参考。</li>
-      <li><a href="widget.html">widget.html</a> 是 Web 组件的展示，更多细节查看：<a
-        href="http://amazeui.org/widgets">Web 组件</a></li>
-    </ul>
-    <h3>开始创建你的网页吧。</h3>
   </div>
 </div>
 
-<footer class="am-margin-top">
-  <hr/>
-  <p class="am-text-center">
-    <small>by The AmazeUI Team.</small>
+  <div class="am-u-md-4 ">
+    <div class="blog-left">
+      <small id="time"></small><br>
+      <small class="am-kai" id="process">2017年逝去50%了哟</small>
+      <div class="am-progress am-progress-striped am-progress-sm am-active ">
+        <div class="am-progress-bar am-progress-bar-secondary" id="process2" style="width: 60%;line-height: 16px">50%</div>
+      </div>
+      <blockquote>
+        <p>无论走到哪里，都应该记住，过去都是假的，回忆是一条没有尽头的路，一切以往的春天都不复存在，就连那最坚韧而又狂乱的爱情归根结底也不过是一种转瞬即逝的现实。</p>
+        <small>马尔克斯 ——《百年孤独》</small>
+      </blockquote>
+      <ul class="am-list am-list-static  am-list-striped " >
+        <li><a href="#about-me" data-am-offcanvas><p>About me<br/><small class="am-kai">关于我</small></p></a></li>
+        <li><a href="#"><p>Artical<br/><small class="am-kai">文章</small></p></a></li>
+        <li><a href="#"><p>Picture<br/><small class="am-kai">图片</small></p></a></li>
+        <li><a href="javascript:void(0);" onclick="chatting()"><p>Chating<br/><small class="am-kai">留言板</small></p></a></li>
+        <li><p><a href="#">Contact me<br/><small class="am-kai">联系我</small></a><br/>
+            <a href="javascript:void(0)" data-am-modal="{target: '#my-popup'}"><small class="am-icon-qq"> QQ</small></a>
+            <a href="javascript:void(0)" data-am-modal="{target: '#my-popup2'}"><small class="am-icon-weixin"> Wechat</small></a>
+            <a href="https://github.com/drangoner"><small class="am-icon-github">Github</small></a>
+            </p></li>
+        <li><a href="#"><p>Support<br/><small class="am-kai">支持</small></p></a></li>
+      </ul>
+    </div>
+      
+  </div>
+  <div class="am-u-md-8" id="right-part">
+    <div class="mask"></div>
+    <div class="mask-above"></div>
+    
+    <div class="am-popup" id="my-popup">
+      <div class="am-popup-inner" style="background: url('./QQ_QR.JPG');background-size: 100% auto;">
+        <div class="am-popup-hd">
+          <h4 class="am-popup-title am-icon-qq">QQ</h4>
+          <span data-am-modal-close
+            class="am-close">&times;</span>
+        </div>
+       
+      </div>
+    </div>
+
+     <div class="am-popup" id="my-popup2">
+      <div class="am-popup-inner" style="background: url('./Wechat_QR.JPG');background-size: 100% auto;">
+        <div class="am-popup-hd">
+          <h4 class="am-popup-title am-icon-weixin">Wechat</h4>
+          <span data-am-modal-close
+            class="am-close">&times;</span>
+        </div>
+        
+      </div>
+    </div>
+
+
+     <article class="blog-main">
+      <h3 class="am-article-title">
+        <a href="#">身邊的字體: Arial (上)</a>
+      </h3>
+      <h4 class="am-article-meta blog-meta">by <a href="">ben</a> posted on 2014/06/17 under <a href="#">javascript</a>
+      </h4>
+
+      <div class="am-g blog-content am-kai">
+        <div class="am-u-lg-7">
+          <p><!--本demo文字来自 http://blog.justfont.com/--> 这次要介绍的是大家似乎都狠熟悉却又狠陌生的字体：Arial。不只是对 Typography
+            特别有兴趣的人、碰过排版的人，就算毫无接触，只要打开过电脑的字型选单，应该都有看过这个字型吧。尤其它还是以 A 开头，总是会出现在选单最前面。</p>
+
+          <p>Arial 常常跟 Helvetica 搞混，也常被当作是没有 Helvetica 时的替代字体使用。事实上 Arial 确实就是故意做得跟 Helvetica 狠相似，连每个字母的宽度都刻意做得一模一样。</p>
+        </div>
+        <div class="am-u-lg-5">
+          <p><img src="https://farm3.staticflickr.com/2917/14186214720_5d0b8ca2e3_b.jpg"></p>
+        </div>
+      </div>
+      <div class="am-g">
+        <div class="am-u-sm-12 am-kai">
+          <p>在欧美的排版业界中，使用 Arial 的作品意即是「不使用 Helvetica 的作品」，会被认為是设计师对字体的使用没有概念或是太容易妥协，基本上我大致也是同意。</p>
+
+          <p>因為 Helvetica 只有 Mac 上才有內建，Windows 用戶除非花錢買，不然是沒有 Helvetica 能用，所以使用 Arial 的設計師往往被看成是不願意對 Typography
+            花錢，專業素養不到家的人。除了在確保網頁相容性等絕對必需的情況外，幾乎可以說是不應該使用的字體。</p>
+
+          <p>但是，在此之前，我們對 Arial 又有多少認識呢？</p>
+        </div>
+      </div>
+    </article>
+
+     <hr class="am-article-divider blog-hr">
+
+    <article class="blog-main">
+      <h3 class="am-article-title blog-title">
+        <a href="#">Google fonts 的字體（display 篇）</a>
+      </h3>
+      <h4 class="am-article-meta blog-meta">by <a href="">open</a> posted on 2014/06/17 under <a href="#">字体</a></h4>
+
+      <div class="am-g blog-content am-kai">
+        <div class="am-u-lg-7">
+          <p><!-- 本demo来自 http://blog.justfont.com/ -->你自信滿滿的跟客戶進行第一次 demo。秀出你精心設計的內容時，你原本期許客戶冷不防地掉下感動的眼淚。</p>
+
+          <p>因為那實在是太高級了。</p>
+
+          <p>除了各項基本架構幾乎完美無缺之外，內文是高貴的，有著一些距離感的，典雅的襯線字體。不是 Times New
+            Roman，而是很少有人見過的，你精心挑選過的字體，凸顯你品味的高超。而且它並沒有花上你與業主一毛錢，或許這也非常重要。</p>
+        </div>
+        <div class="am-u-lg-5">
+          <p><img src="http://f.cl.ly/items/451O3X0g47320D203D1B/不夠活潑.jpg"></p>
+        </div>
+      </div>
+      <div class="am-g">
+        <div class="am-u-sm-12 am-kai">
+          <p>看著自己的作品，你的喜悅之情溢於言表，差點就要說出我要感謝我的父母之類的得獎感言。但在你對面的客戶先是一點表情也沒有，又瞬間轉為陰沉，抿了抿嘴角冷冷的說……</p>
+
+          <p>「我要一種比較跳的感覺懂嗎？」</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
+<!--尾部-->
+<footer class="blog-footer">
+   <p>blog template<br/>
+    <small>© Copyright Mike. by the AmazeUI Team.</small>
   </p>
 </footer>
-<!-- 以上页面内容 开发时删除 -->
 
 <!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
@@ -173,8 +292,71 @@
 
 <!--[if (gte IE 9)|!(IE)]><!-->
 <script src="assets/js/jquery.min.js"></script>
+<script type="text/javascript">
+  var day= new Array('日','一','二','三','四','五','六');
+  $(function(){
+    time();
+    setInterval(function(){
+     time();
+    });
+  });
+  function time(){
+    var time = document.getElementById('time');
+    var pro = document.getElementById('process');
+    var pro2 = document.getElementById('process2');
+
+    var date = new Date();
+    var hour = "";
+    date.getHours() < 10 ? hour = "0"+date.getHours() : hour = date.getHours();
+    var min = "";
+    date.getMinutes() < 10 ? min = "0"+date.getMinutes() : min = date.getMinutes();
+    var sec = "";
+    date.getSeconds() < 10 ? sec = "0"+date.getSeconds() : sec = date.getSeconds();
+
+    time.innerHTML= date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日  星期"+day[date.getDay()]+ "&nbsp;&nbsp;&nbsp;" + hour +":"+ min +":"+sec;
+    pro.innerHTML = date.getFullYear()+"年逝去"+((date.getMonth()+1)/12*100)+"%了哟";
+    pro2.innerHTML = ((date.getMonth()+1)/12*100)+"%";
+  }
+  function chatting(){
+    $.ajax({
+      type:"GET",
+      url:"./comment.json",
+      dataType:"json",
+      success:function(data){
+        var comments= data.comments;
+        var html="";
+        for(var i = 0; i < comments.length; i++){
+          var css="";
+          switch(i%6){
+            case 0: css = "";break;
+            case 1: css = "am-u-md-offset-4 am-u-lg-offset-3";break;
+            case 2: css = "am-u-md-offset-8 am-u-lg-offset-6";break;
+            case 3: css = "am-u-md-offset-8 am-u-lg-offset-9";break;
+            case 4: css = "am-u-md-offset-8 am-u-lg-offset-6";break;
+            case 5: css = "am-u-md-offset-8 am-u-lg-offset-3";break;
+          }
+          html = html +"<div class=\"am-g\"><div class=\"am-panel am-panel-default message am-u-sm-12 am-u-md-4 am-u-lg-3"+css+"\" id=\"motion"+i+
+              "\" ><h4>"+comments[i].name+"<br/><small>"+comments[i].date+"</small></h4><hr/>"+comments[i].cotent+"</div></div>";
+        }
+
+        $("#right-part").html(html);
+        console.log(html);
+        for(var i = 0; i < comments.length; i++){
+          var id = "#motion"+i;
+          var scroll = new Array("fade","scale-up","scale-down","slide-top","slide-top","slide-bottom","slide-right","slide-left");
+          $(id).scrollspy({
+            animation: scroll[i%8],
+            delay: 0
+          });
+          var color = new Array('#0033FF','#0066FF','#0099FF','#00CCFF','#00FFFF','#00FFCC','#00FF99','#00CC66','#009933','#006600','#003333','#000066','#330066','#660066','#990066','#990033','#CC0033','#CC3366','#CC3333','#CC3300','#CC6600','#CC9900','#CC3333','#CC0066','#990099','#6633CC','#3333FF','#3300CC','#003399','#000099','#000066' )
+          $(id).css("color",color[i%color.length]);
+        }
+      }
+     
+    });
+  }
+</script>
 <!--<![endif]-->
 <script src="assets/js/amazeui.min.js"></script>
 
 </body>
-</html>
